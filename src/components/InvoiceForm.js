@@ -67,7 +67,6 @@ class InvoiceForm extends React.Component {
     var items = this.state.items;
     var subTotal = 0;
 
-    // eslint-disable-next-line array-callback-return
     items.map(function(items) {
       subTotal = parseFloat(subTotal + (parseFloat(items.price).toFixed(2) * parseInt(items.quantity))).toFixed(2)
     });
@@ -98,7 +97,7 @@ class InvoiceForm extends React.Component {
     var items = this.state.items.slice();
     var newItems = items.map(function(items) {
       for (var key in items) {
-        if (key === item.name && items.id === item.id) {
+        if (key == item.name && items.id == item.id) {
           items[key] = item.value;
         }
       }
@@ -211,7 +210,7 @@ class InvoiceForm extends React.Component {
             <Form.Group className="mb-3">
               <Form.Label className="fw-bold">Currency:</Form.Label>
               <Form.Select onChange={event => this.onCurrencyChange({currency: event.target.value})} className="btn btn-light my-1" aria-label="Change Currency">
-                <option value="₹">INR (Indian Rupees)</option>  
+                <option value="₹">INR (Indian Rupee)</option>
                 <option value="$">USD (United States Dollar)</option>
                 <option value="£">GBP (British Pound Sterling)</option>
                 <option value="¥">JPY (Japanese Yen)</option>
